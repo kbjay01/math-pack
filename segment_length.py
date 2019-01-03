@@ -16,11 +16,11 @@ def lenSeg():
         y1 = float(y1)
         y2 = float(y2)
     except ValueError:
-        print.err("[!] At least one of the inputted variables is not a number")
+        print("[!] At least one of the inputted variables is not a number")
         return
 
     seg_length = math.sqrt((math.pow(x1-x2,2)) + math.pow(y2-y1,2))
-    prime_number.p_num = seg_length
+    prime_number.p_num = int(seg_length)
     prime_number.prime_numb()
 
     if prime_number.isPrime == 1:
@@ -31,3 +31,4 @@ def lenSeg():
         seg_length = str(seg_length)
         seg_length = square_service.a + "√" + square_service.b
         print(seg_length)
+    
