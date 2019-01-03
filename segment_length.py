@@ -23,8 +23,8 @@ def lenSeg():
     prime_number.p_num = seg_length
     prime_number.prime_numb()
 
-    if prime_number.p_num == 1:
-        square_service.perfect_num == seg_length
+    if prime_number.isPrime == 1:
+        square_service.num == seg_length
         square_service.sqr_svc()
         print("Length of this segment: " + str(seg_length))
         print("Or just simply...")
