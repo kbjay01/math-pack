@@ -1,22 +1,23 @@
 import math
 
-perfect_num = 0
-a = 1.0
-b = 1.0
-
 def sqr_svc():
-    while (True):
+  num = 0
+  perfect_num = math.sqrt(num)
+  a = 2
+  b = 1.0
 
-        if (a * math.sqrt(b) < perfect_num):
-            b = b + 1
+  while (True):
 
-        elif (a * math.sqrt(b) > perfect_num):
-            a = a+1
-            b = 1
+    if (a * math.sqrt(b) < perfect_num):
+        b = b + 1
+        #print("if pierwszy")
 
-        elif (a * math.sqrt(b) == perfect_num):
-            if a == 1:
-                a = 2
+    if (a * math.sqrt(b) > perfect_num):
+        a = a+1
+        b = 1
+        #print(str(a) + "," + str(b))
 
-    a = str(a)
-    b = str(b)
+    if (a * math.sqrt(b) == perfect_num):
+        break
+
+  print(str(a) + "√" + str(b))
