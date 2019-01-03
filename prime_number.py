@@ -1,9 +1,8 @@
-# Default settings
-isPrime = 0
-counter = 0
-p_num = 1
-
 def prime_numb():
+    isPrime = 0
+    counter = 0
+    p_num = 1
+    
     for i in range(1,p_num):
         if (i>p_num):
             break;
