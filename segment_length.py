@@ -32,3 +32,5 @@ def lenSeg():
         seg_length = square_service.a + "√" + square_service.b
         print(seg_length)
     
+    if prime_number.isPrime == 0:
+      print("Length of this segment: " + str(seg_length))
