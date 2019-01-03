@@ -1,11 +1,11 @@
 import math
 
+num = 0
+a = 2.0
+b = 1.0
 def sqr_svc():
-  num = 0
-  perfect_num = math.sqrt(num)
-  a = 2
-  b = 1.0
 
+  perfect_num = math.sqrt(num)
   while (True):
 
     if (a * math.sqrt(b) < perfect_num):
