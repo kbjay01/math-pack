@@ -9,3 +9,5 @@ if choice == "1":
     quadratic_function.quad_func()
 elif choice == "2":
     segment_length.lenSeg()
+ else:
+    print("[!] Unknown choice")
