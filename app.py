@@ -8,6 +8,6 @@ choice = input(">> ")
 if choice == "1":
     quadratic_function.quad_func()
 elif choice == "2":
-    segment_length.lenSeg()
- else:
+    segment_length.len_seg()
+else:
     print("[!] Unknown choice")
