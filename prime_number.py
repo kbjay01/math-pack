@@ -1,15 +1,13 @@
-p_num = 0
-isPrime = 0
-def prime_numb():
-    counter = 0 
-    for i in range(1,p_num):
-        if (i>p_num):
-            break;
+def isPrime(num):
+    counter = 0
+    for i in range(1, int(num + 1)):
+        if (i > num):
+            break
 
-        if (p_num%i == 0):
-           counter = counter + 1
+        if (num % i == 0):
+            counter = counter + 1
+
     if (counter == 2):
-        isPrime = 1
+        return 1
     else:
-        isPrime = 0
-  
+        return 0
