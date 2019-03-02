@@ -1,6 +1,7 @@
-import math,prime_number,square_service
+import math, prime_number, square_service
 
-def lenSeg():
+def len_seg():
+
     print("Segment has two points")
     print("A[x1,y1]")
     print("B[x2,y2]")
@@ -17,20 +18,23 @@ def lenSeg():
         y2 = float(y2)
     except ValueError:
         print("[!] At least one of the inputted variables is not a number")
-        return
+        exit()
 
-    seg_length = math.sqrt((math.pow(x1-x2,2)) + math.pow(y2-y1,2))
-    prime_number.p_num = int(seg_length)
-    prime_number.prime_numb()
+    seg_length = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    print("test " + str(seg_length ** 2))
+    prime = prime_number.isPrime(int(seg_length))
+    print(prime)
 
-    if prime_number.isPrime == 1:
-        square_service.num == seg_length
-        square_service.sqr_svc()
+    if prime == 0:
         print("Length of this segment: " + str(seg_length))
         print("Or just simply...")
-        seg_length = str(seg_length)
-        seg_length = square_service.a + "√" + square_service.b
-        print(seg_length)
-    
-    if prime_number.isPrime == 0:
-      print("Length of this segment: " + str(seg_length))
+        root = str(square_service.sqr_svc(float(seg_length ** 2)))
+
+        if (str(int((float(seg_length ** 2)))) in root):
+            print(chr(8730) + str(int(seg_length ** 2)))
+        else:
+          print(root)
+
+    if prime == 1:
+        print("Length of this segment: " + str(seg_length))
+        print("Or " + chr(8730) + str(int(seg_length ** 2)))
