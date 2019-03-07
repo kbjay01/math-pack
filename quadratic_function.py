@@ -51,8 +51,8 @@ def quad_func():
         if (delta == 0):
             x0 = -1 * (b / (2*a))
         elif (delta > 0 ):
-            x1 = ((-b - math.sqrt(delta) / (2*a)))
-            x2 = ((-b + math.sqrt(delta) / (2*a)))
+            x1 = ((-b - math.sqrt(delta)) / (2*a))
+            x2 = ((-b + math.sqrt(delta)) / (2*a))
 
       # **PRINTER**
 
