@@ -4,36 +4,36 @@
 # PLEASE BE PATIENT
 # -----------------------------------------
 
-il_elementow = input("Ilosc wspolczynnikow, wraz z wyrazem wolnym: ")
+najwyzsza_potega = input("Najwyzsza potega twojego wielomianu: ")
 wspolczynniki = []
 
 # Sprawdzam czy ilosc elementow napewno jest liczba a nie np tekstem
 try:
-    il_elementow = int(il_elementow)
+    najwyzsza_potega = int(najwyzsza_potega)
 except ValueError:
-    print("[!] Ilosc wspolczynnikow musi byc liczba calkowita")
+    print("[!] Potega musi byc liczba calkowita")
     exit()
 
-if il_elementow <= 1:
-    print("[!] Ilosc wspolczynnikow musi byc wieksza niz 1")
+if najwyzsza_potega <= 1:
+    print("[!] Potega musi byc wieksza niz 1")
     exit()
 
 # Tworze liste przechowywujaca potegi i wpisuje do niej potegi
 
 potegi = []
 
-for i in reversed(range(il_elementow)):
+for i in reversed(range(najwyzsza_potega)):
     potegi.append(i)
 
 # Zapisuje elementy podawane przez uzytkownika, do poprzednio utworzonej tablicy wspolczynniki,
 # jednoczesnie sprawdzam czy podawane wspolczynniki, czy tez wyraz wolny sa liczbami
 
 
-for j in range(1, il_elementow):
+for j in range(1, najwyzsza_potega):
     try:
-        if (j < il_elementow):
+        if (j < najwyzsza_potega):
             wspolczynniki.append(int(input("Podaj wspolczynnik, wystepujacy przed x, z potega " + str(potegi[j - 1]) + ": ")))
-        if (j == (il_elementow - 1)):
+        if (j == (najwyzsza_potega - 1)):
             wspolczynniki.append(int(input("Podaj wyraz wolny: ")))
     except ValueError:
         print("\n[!] Wprowadzone dane nie sa liczba calkowita")
@@ -43,13 +43,13 @@ for j in range(1, il_elementow):
 
 dzielniki_wyrazu_wolnego = []
 
-for k in range (1, wspolczynniki[il_elementow - 1]):
-    if (wspolczynniki[il_elementow - 1] % k == 0):
+for k in range (1, wspolczynniki[najwyzsza_potega - 1]):
+    if (wspolczynniki[najwyzsza_potega - 1] % k == 0):
         dzielniki_wyrazu_wolnego.append(k)
         dzielniki_wyrazu_wolnego.append(-1 * k)
 
-dzielniki_wyrazu_wolnego.append(wspolczynniki[il_elementow-1])
-dzielniki_wyrazu_wolnego.append((wspolczynniki[il_elementow-1]) * -1)
+dzielniki_wyrazu_wolnego.append(wspolczynniki[najwyzsza_potega - 1])
+dzielniki_wyrazu_wolnego.append((wspolczynniki[najwyzsza_potega - 1]) * -1)
 
 root = 0
 sum = 1
@@ -59,8 +59,8 @@ for l in dzielniki_wyrazu_wolnego:
         root = l
         break
     sum = 0
-    for m in range(il_elementow):
-        if (m == (il_elementow -1)):
+    for m in range(najwyzsza_potega):
+        if (m == (najwyzsza_potega - 1)):
             sum += wspolczynniki[m]
         else:
             sum += wspolczynniki[m] * (l ** potegi[m])
