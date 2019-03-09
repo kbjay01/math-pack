@@ -1,0 +1,69 @@
+# WORK IN PROGRESS..
+# THIS IS NOT READY FOR USE YET
+# IT IS NOT COMPLETED, SO IT DOESN'T HAVE FULL FUNCTIONALITY, AND IT'S NOT TRANSLATED TO ENGLISH
+# PLEASE BE PATIENT
+# -----------------------------------------
+
+il_elementow = input("Ilosc wspolczynnikow, wraz z wyrazem wolnym: ")
+wspolczynniki = []
+
+# Sprawdzam czy ilosc elementow napewno jest liczba a nie np tekstem
+try:
+    il_elementow = int(il_elementow)
+except ValueError:
+    print("[!] Ilosc wspolczynnikow musi byc liczba calkowita")
+    exit()
+
+if il_elementow <= 1:
+    print("[!] Ilosc wspolczynnikow musi byc wieksza niz 1")
+    exit()
+
+# Tworze liste przechowywujaca potegi i wpisuje do niej potegi
+
+potegi = []
+
+for i in reversed(range(il_elementow)):
+    potegi.append(i)
+
+# Zapisuje elementy podawane przez uzytkownika, do poprzednio utworzonej tablicy wspolczynniki,
+# jednoczesnie sprawdzam czy podawane wspolczynniki, czy tez wyraz wolny sa liczbami
+
+
+for j in range(1, il_elementow):
+    try:
+        if (j < il_elementow):
+            wspolczynniki.append(int(input("Podaj wspolczynnik, wystepujacy przed x, z potega " + str(potegi[j - 1]) + ": ")))
+        if (j == (il_elementow - 1)):
+            wspolczynniki.append(int(input("Podaj wyraz wolny: ")))
+    except ValueError:
+        print("\n[!] Wprowadzone dane nie sa liczba calkowita")
+
+# Tworze nowa tablice dzielniki_wyrazu_wolnego, ktora po nazwie wiadomo co bedzie przechowywac...
+# aby znalezc jego dzielniki uzywam petli ponizej
+
+dzielniki_wyrazu_wolnego = []
+
+for k in range (1, wspolczynniki[il_elementow - 1]):
+    if (wspolczynniki[il_elementow - 1] % k == 0):
+        dzielniki_wyrazu_wolnego.append(k)
+        dzielniki_wyrazu_wolnego.append(-1 * k)
+
+dzielniki_wyrazu_wolnego.append(wspolczynniki[il_elementow-1])
+dzielniki_wyrazu_wolnego.append((wspolczynniki[il_elementow-1]) * -1)
+
+root = 0
+sum = 1
+for l in dzielniki_wyrazu_wolnego:
+    print("W(" + str(l) + ") = " + str(sum))
+    if (sum == 0):
+        root = l
+        break
+    sum = 0
+    for m in range(il_elementow):
+        if (m == (il_elementow -1)):
+            sum += wspolczynniki[m]
+        else:
+            sum += wspolczynniki[m] * (l ** potegi[m])
+
+print("Dzielniki wyrazu wolnego: " + str(dzielniki_wyrazu_wolnego))
+print("Pierwiastek: " + str(root))
